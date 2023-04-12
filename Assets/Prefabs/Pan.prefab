@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8324066678412884892}
   - component: {fileID: 3678573698275570248}
+  - component: {fileID: 9216749626777646108}
+  - component: {fileID: 8868605055888979060}
   m_Layer: 0
   m_Name: Pan
   m_TagString: Untagged
@@ -84,3 +86,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9216749626777646108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288328114216028794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f219288ec25b40a49968f7c4c8265e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meat: {fileID: 0}
+  _panView: {fileID: 8868605055888979060}
+--- !u!114 &8868605055888979060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288328114216028794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbadb737321b46e095b02d8f803a7cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meatSprite: {fileID: 21300000, guid: 570640abb2614c944b842a0dd61b1526, type: 3}
