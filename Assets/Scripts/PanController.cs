@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PanController : MonoBehaviour
 {
-    [field: SerializeField] public Transform MeatTransform { get; private set; }
+    [field: SerializeField] public RectTransform MeatTransform { get; private set; }
 
     [field: SerializeField] public bool IsAvailable { get; private set; }
 

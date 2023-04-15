@@ -19,7 +19,7 @@ public class PansManager : MonoBehaviour
             {
                 var meat = _meatController.SpawnMeat();
                 panController.Initialize(meat);
-                meat.SetPosition(panController.MeatTransform.position);
+                meat.SetPosition(panController.MeatTransform);
                 panController.SetPanAvailable(false);
             }
         }
