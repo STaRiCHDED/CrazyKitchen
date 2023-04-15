@@ -1,8 +1,9 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PanController : MonoBehaviour
+public class PanController : MonoBehaviour, IDropHandler
 {
     [field: SerializeField] public RectTransform MeatTransform { get; private set; }
 
@@ -43,5 +44,10 @@ public class PanController : MonoBehaviour
         }
 
         _meat.MeatImage.color = Color.Lerp(_startMeatColor, Color.black, _currentTime / _cookingTime);
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Сковородкин");
     }
 }
