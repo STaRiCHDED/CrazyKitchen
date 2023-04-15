@@ -9,8 +9,10 @@ public class Meat : MonoBehaviour
     [field: SerializeField]
     public bool IsCooked { get; private set; }
 
-    public void SetPosition(Vector3 position)
+    public void SetPosition(RectTransform parentTransformPosition)
     {
-        transform.position = position;
+        transform.SetParent(parentTransformPosition);
+        transform.position = parentTransformPosition.position;
+
     }
 }
