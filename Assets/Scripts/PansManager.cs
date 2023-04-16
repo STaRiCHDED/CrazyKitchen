@@ -5,7 +5,7 @@ public class PansManager : MonoBehaviour
 {
     [SerializeField] private PanController[] _pans;
     [SerializeField] private MeatController _meatController;
-
+    [SerializeField] private RectTransform _canvas;
     private void Awake()
     {
         _meatController.MeatButton.onClick.AddListener(StartCookingMeat);
@@ -19,7 +19,7 @@ public class PansManager : MonoBehaviour
             {
                 var meat = _meatController.SpawnMeat();
                 panController.Initialize(meat);
-                meat.SetPosition(panController.MeatTransform);
+                meat.SetPosition(_canvas,panController.MeatTransform.position);
                 panController.SetPanAvailable(false);
             }
         }
