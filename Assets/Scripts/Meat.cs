@@ -22,8 +22,18 @@ public class Meat : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
         _panPosition = position;
     }
 
+    public void SetCooked()
+    {
+        IsCooked = true;
+    }
+    
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!IsCooked)
+        {
+            return;
+        }
         Debug.Log("Взял мясо");
         var service = ServiceLocator.Instance.GetSingle<IDragBufferService>();
         service.AddToBuffer(gameObject);

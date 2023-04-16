@@ -39,7 +39,7 @@ public class PanController : MonoBehaviour, IDropHandler
         _currentTime += Time.deltaTime;
         if (_currentTime >= _cookingTime)
         {
-            // todo сеттить IsAvailable в true, оповещать о приготовлении мяса
+            _meat.SetCooked();
             return;
         }
 
