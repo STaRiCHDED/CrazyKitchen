@@ -13,11 +13,13 @@ public class Meat : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
 
     [SerializeField] private CanvasGroup _group;
 
+    private Vector3 _panPosition;
+
     public void SetPosition(RectTransform parentTransformPosition,Vector3 position)
     {
         transform.SetParent(parentTransformPosition);
         transform.position = position;
-
+        _panPosition = position;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -30,11 +32,22 @@ public class Meat : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = Input.mousePosition;
+        if (!IsCooked)
+        {
+            return;
+        }
+        transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        var element = eventData.pointerCurrentRaycast.gameObject;
+        Debug.LogWarning($"{element.name}");
+        
+        if (!element.CompareTag("Plate"))
+        {
+            gameObject.transform.position = _panPosition;
+        }
         Debug.Log("Отпустил мясо");
         _group.blocksRaycasts = true;
     }
