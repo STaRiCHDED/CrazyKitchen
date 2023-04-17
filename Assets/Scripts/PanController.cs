@@ -3,48 +3,37 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class PanController : MonoBehaviour, IDropHandler
 {
-    [field: SerializeField] public RectTransform MeatTransform { get; private set; }
-
-    [field: SerializeField] public bool IsAvailable { get; private set; }
-
-    [SerializeField] private float _cookingTime;
-
-    private Meat _meat;
-    private float _currentTime;
-    private Color _startMeatColor;
-
-    public void Initialize(Meat meat)
+    [SerializeField] private PanView _panView;
+    
+    private PanModel _panModel;
+    
+    public void Initialize(PanModel panModel, Meat meat)
     {
-        _meat = meat;
-        _startMeatColor = _meat.MeatImage.color;
+        _panModel = panModel;
+        _panView.Initialize(meat);
+        _panModel.IsAvailable = false;
+        
+        _panView.MeatCooked += OnMeetCooked;
     }
 
-    public void SetPanAvailable(bool isAvailable)
+    private void OnMeetCooked()
     {
-        IsAvailable = isAvailable;
+        _panModel.IsAvailable = true;
     }
 
     private void Update()
     {
-        if (_meat != null)
+        if ( _panModel==null || _panModel.IsAvailable)
         {
-            Cook();
-        }
-    }
-
-    private void Cook()
-    {
-        _currentTime += Time.deltaTime;
-        if (_currentTime >= _cookingTime)
-        {
-            _meat.SetCooked();
             return;
         }
-
-        _meat.MeatImage.color = Color.Lerp(_startMeatColor, Color.black, _currentTime / _cookingTime);
+        
+        _panView.Cook(_panModel.CookingTime);
     }
+
 
     public void OnDrop(PointerEventData eventData)
     {

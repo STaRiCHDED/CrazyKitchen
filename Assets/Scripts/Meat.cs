@@ -9,25 +9,19 @@ public class Meat : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
     public Image MeatImage { get; private set;}
     
     [field: SerializeField]
-    public bool IsCooked { get; private set; }
+    public bool IsCooked { get; set; }
 
     [SerializeField] private CanvasGroup _group;
 
     private Vector3 _panPosition;
 
-    public void SetPosition(RectTransform parentTransformPosition,Vector3 position)
+    public void SetPosition(RectTransform parentTransformPosition)
     {
         transform.SetParent(parentTransformPosition);
-        transform.position = position;
-        _panPosition = position;
-    }
-
-    public void SetCooked()
-    {
-        IsCooked = true;
+        transform.position = parentTransformPosition.position;
+        _panPosition = parentTransformPosition.position;
     }
     
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!IsCooked)

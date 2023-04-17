@@ -1,11 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PansManager : MonoBehaviour
 {
     [SerializeField] private PanController[] _pans;
     [SerializeField] private MeatController _meatController;
-    [SerializeField] private RectTransform _canvas;
+
+    private List<PanModel> _panModels;
+
+    public void Initialize(List<PanModel> panModels)
+    {
+        _panModels = panModels;
+    }
+    
     private void Awake()
     {
         _meatController.MeatButton.onClick.AddListener(StartCookingMeat);
@@ -13,14 +21,12 @@ public class PansManager : MonoBehaviour
 
     private void StartCookingMeat()
     {
-        foreach (var panController in _pans)
+        for (var i = 0; i < _panModels.Count; i++)
         {
-            if (panController.IsAvailable)
+            if (_panModels[i].IsAvailable)
             {
                 var meat = _meatController.SpawnMeat();
-                panController.Initialize(meat);
-                meat.SetPosition(_canvas,panController.MeatTransform.position);
-                panController.SetPanAvailable(false);
+                _pans[i].Initialize(_panModels[i], meat);
             }
         }
     }
