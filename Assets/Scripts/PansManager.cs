@@ -5,7 +5,7 @@ using UnityEngine;
 public class PansManager : MonoBehaviour
 {
     [SerializeField] private PanController[] _pans;
-    [SerializeField] private MeatController _meatController;
+    [SerializeField] private MeatManager _meatManager;
 
     private List<PanModel> _panModels;
 
@@ -16,7 +16,7 @@ public class PansManager : MonoBehaviour
     
     private void Awake()
     {
-        _meatController.MeatButton.onClick.AddListener(StartCookingMeat);
+        _meatManager.MeatButton.onClick.AddListener(StartCookingMeat);
     }
 
     private void StartCookingMeat()
@@ -25,7 +25,7 @@ public class PansManager : MonoBehaviour
         {
             if (_panModels[i].IsAvailable)
             {
-                var meat = _meatController.SpawnMeat();
+                var meat = _meatManager.SpawnMeat();
                 _pans[i].Initialize(_panModels[i], meat);
             }
         }

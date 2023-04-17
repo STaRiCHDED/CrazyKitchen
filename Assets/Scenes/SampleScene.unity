@@ -281,7 +281,7 @@ MonoBehaviour:
   - {fileID: 769257343}
   - {fileID: 372088345}
   - {fileID: 2096243204}
-  _meatController: {fileID: 404224390}
+  _meatManager: {fileID: 404224392}
 --- !u!1 &230460021
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,29 +615,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 404224391}
-  - component: {fileID: 404224390}
+  - component: {fileID: 404224392}
   m_Layer: 0
-  m_Name: MeatController
+  m_Name: MeatMANAGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &404224390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404224389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95571ff87648467f88f582a18579fbfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meatPrefab: {fileID: 888387132203791864, guid: e14c1ebb3a8acd24aba189d866bc9445, type: 3}
-  _spawnRoot: {fileID: 1457742245}
-  <MeatButton>k__BackingField: {fileID: 1251465334}
 --- !u!4 &404224391
 Transform:
   m_ObjectHideFlags: 0
@@ -653,6 +638,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &404224392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404224389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95571ff87648467f88f582a18579fbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meatControllerPrefab: {fileID: 888387132203791864, guid: e14c1ebb3a8acd24aba189d866bc9445, type: 3}
+  _spawnRoot: {fileID: 1457742245}
+  <MeatButton>k__BackingField: {fileID: 1251465334}
 --- !u!1 &471467473
 GameObject:
   m_ObjectHideFlags: 0

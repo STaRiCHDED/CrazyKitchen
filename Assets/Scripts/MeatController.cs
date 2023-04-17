@@ -1,24 +1,55 @@
-﻿using System;
-using Pools;
+﻿using Services;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class MeatController : MonoBehaviour
+public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
 {
-    [SerializeField] private Meat _meatPrefab;
-    [SerializeField] private Transform _spawnRoot;
-    [field:SerializeField] public Button MeatButton { get; private set; }
-
-    private MonoBehaviourPool<Meat> _pool;
-
-    private void Awake()
+    public MeatView MeatView => _meatView;
+    
+    [SerializeField] private MeatView _meatView;
+    
+    [SerializeField]
+    private MeatModel _meatModel;
+    
+    public void ChangeMeatState()
     {
-        _pool = new MonoBehaviourPool<Meat>(_meatPrefab, _spawnRoot, 6);
+        _meatModel.IsCooked = true;
+    }
+    
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (!_meatModel.IsCooked)
+        {
+            return;
+        }
+        Debug.Log("Взял мясо");
+        var service = ServiceLocator.Instance.GetSingle<IDragBufferService>();
+        service.AddToBuffer(gameObject);
+        _meatView.Group.blocksRaycasts = false;
     }
 
-    public Meat SpawnMeat()
+    public void OnDrag(PointerEventData eventData)
     {
-        var meat = _pool.Take();
-        return meat;
+        if (!_meatModel.IsCooked)
+        {
+            return;
+        }
+        transform.position = Input.mousePosition;
     }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        var element = eventData.pointerCurrentRaycast.gameObject;
+        Debug.LogWarning($"{element.name}");
+        
+        if (!element.CompareTag("Plate"))
+        {
+            transform.position = _meatView.PanPosition;
+        }
+        Debug.Log("Отпустил мясо");
+        _meatView.Group.blocksRaycasts = true;
+    }
+    
+    
+    
 }

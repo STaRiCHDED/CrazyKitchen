@@ -6,15 +6,13 @@ public class PanView : MonoBehaviour
     public event Action MeatCooked;
     [field: SerializeField] public RectTransform MeatTransform { get; private set; }
 
-    private Meat _meat;
-    private Color _startMeatColor;
+    private MeatView _meatView;
     private float _currentTime;
 
-    public void Initialize(Meat meat)
+    public void Initialize(MeatView meatView)
     {
-        _meat = meat;
-        _meat.SetPosition(MeatTransform);
-        _startMeatColor = _meat.MeatImage.color;
+        _meatView = meatView;
+        _meatView.SetPosition(MeatTransform);
     }
     
     public void Cook(float cookingTime)
@@ -22,13 +20,10 @@ public class PanView : MonoBehaviour
         _currentTime += Time.deltaTime;
         if (_currentTime >= cookingTime)
         {
-            _meat.IsCooked = true;
             _currentTime = 0;
             MeatCooked?.Invoke();
-            return;
+            _meatView.ChangeMeatView();
         }
-
-        _meat.MeatImage.color = Color.Lerp(_startMeatColor, Color.black, _currentTime / cookingTime);
     }
     
 }

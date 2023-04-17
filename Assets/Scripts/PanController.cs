@@ -9,11 +9,13 @@ public class PanController : MonoBehaviour, IDropHandler
     [SerializeField] private PanView _panView;
     
     private PanModel _panModel;
+    private MeatController _meatController;
     
-    public void Initialize(PanModel panModel, Meat meat)
+    public void Initialize(PanModel panModel, MeatController meatController)
     {
         _panModel = panModel;
-        _panView.Initialize(meat);
+        _meatController = meatController;
+        _panView.Initialize(_meatController.MeatView);
         _panModel.IsAvailable = false;
         
         _panView.MeatCooked += OnMeetCooked;
@@ -21,7 +23,7 @@ public class PanController : MonoBehaviour, IDropHandler
 
     private void OnMeetCooked()
     {
-        _panModel.IsAvailable = true;
+        _meatController.ChangeMeatState();
     }
 
     private void Update()
