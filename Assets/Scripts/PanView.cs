@@ -22,7 +22,7 @@ public class PanView : MonoBehaviour
         {
             _currentTime = 0;
             MeatCooked?.Invoke();
-            _meatView.ChangeMeatView();
+            _meatView.ChangeReadyState(true);
         }
     }
     

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1349234114974204828
+--- !u!1 &412716308590467734
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4427128868131396890}
-  - component: {fileID: 4481991953216463638}
-  - component: {fileID: 7997868160917341183}
-  - component: {fileID: 888387132203791864}
-  - component: {fileID: 6930645094714544639}
-  - component: {fileID: -9077615446362785575}
+  - component: {fileID: 412716308590467735}
+  - component: {fileID: 412716308590467733}
+  - component: {fileID: 412716308590467732}
+  - component: {fileID: 4313207478777806051}
+  - component: {fileID: 5959873881124138273}
   m_Layer: 5
-  m_Name: Kotleta
+  m_Name: Burger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4427128868131396890
+--- !u!224 &412716308590467735
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349234114974204828}
+  m_GameObject: {fileID: 412716308590467734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4481991953216463638
+--- !u!222 &412716308590467733
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349234114974204828}
+  m_GameObject: {fileID: 412716308590467734}
   m_CullTransparentMesh: 1
---- !u!114 &7997868160917341183
+--- !u!114 &412716308590467732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349234114974204828}
+  m_GameObject: {fileID: 412716308590467734}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -79,46 +78,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &888387132203791864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349234114974204828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6f56df89ce4b419cf8f167e39174f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meatView: {fileID: -9077615446362785575}
-  _meatModel:
-    <IsCooked>k__BackingField: 0
---- !u!225 &6930645094714544639
+--- !u!225 &4313207478777806051
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349234114974204828}
+  m_GameObject: {fileID: 412716308590467734}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-9077615446362785575
+--- !u!114 &5959873881124138273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349234114974204828}
+  m_GameObject: {fileID: 412716308590467734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1415aae94c8a4afcac13156fc16bb5d5, type: 3}
+  m_Script: {fileID: 11500000, guid: a07a73166fd3440fbbc3f8a8be22536e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanvasGroup>k__BackingField: {fileID: 6930645094714544639}
-  _currentStateView: {fileID: 7997868160917341183}
-  _initialStateSprite: {fileID: 21300000, guid: e16bb659739877e4d8e1cc1214a55d9b, type: 3}
-  _readyStateSprite: {fileID: 21300000, guid: 904ca7c76eb00f74f99db9b658c58e4a, type: 3}
+  <CanvasGroup>k__BackingField: {fileID: 4313207478777806051}
+  _currentStateView: {fileID: 412716308590467732}
+  _initialStateSprite: {fileID: 21300000, guid: 1e0b5aacc0ab2964895631d49617ee37, type: 3}
+  _readyStateSprite: {fileID: 21300000, guid: 52f8a6beecc79b24d9e3c0f77287550b, type: 3}

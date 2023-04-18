@@ -25,7 +25,7 @@ public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndD
         Debug.Log("Взял мясо");
         var service = ServiceLocator.Instance.GetSingle<IDragBufferService>();
         service.AddToBuffer(gameObject);
-        _meatView.Group.blocksRaycasts = false;
+        _meatView.CanvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -44,10 +44,10 @@ public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndD
         
         if (!element.CompareTag("Plate"))
         {
-            transform.position = _meatView.PanPosition;
+            transform.position = _meatView.StartPosition;
         }
         Debug.Log("Отпустил мясо");
-        _meatView.Group.blocksRaycasts = true;
+        _meatView.CanvasGroup.blocksRaycasts = true;
     }
     
     
