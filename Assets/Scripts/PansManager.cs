@@ -7,13 +7,13 @@ public class PansManager : MonoBehaviour
     [SerializeField] private PanController[] _pans;
     [SerializeField] private MeatManager _meatManager;
 
-    private List<PanModel> _panModels;
+    private PanModel[] _panModels;
 
-    public void Initialize(List<PanModel> panModels)
+    public void Initialize(PanModel[] panModels)
     {
         _panModels = panModels;
     }
-    
+
     private void Awake()
     {
         _meatManager.MeatButton.onClick.AddListener(StartCookingMeat);
@@ -21,7 +21,7 @@ public class PansManager : MonoBehaviour
 
     private void StartCookingMeat()
     {
-        for (var i = 0; i < _panModels.Count; i++)
+        for (var i = 0; i < _panModels.Length; i++)
         {
             if (_panModels[i].IsAvailable)
             {

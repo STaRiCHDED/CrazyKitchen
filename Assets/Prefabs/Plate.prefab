@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2504853729854614613}
   - component: {fileID: 2391852210387057052}
   - component: {fileID: -7945047678980549428}
+  - component: {fileID: 5013462510279313687}
   m_Layer: 5
   m_Name: Plate
   m_TagString: Plate
@@ -127,3 +128,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MeatTransform>k__BackingField: {fileID: 8733074293471886171}
+  _plateView: {fileID: 5013462510279313687}
+--- !u!114 &5013462510279313687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2334815842209553348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4772553b8d6f48b0ba7dafd80e350a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plateImage: {fileID: 2391852210387057052}
+  _uncompletedMeal: {fileID: 21300000, guid: 1e0b5aacc0ab2964895631d49617ee37, type: 3}
+  _completedMeal: {fileID: 21300000, guid: def5136c3d0208347a0d4d5ea1b7c0f4, type: 3}

@@ -10,6 +10,7 @@ public class PanController : MonoBehaviour, IDropHandler
     
     private PanModel _panModel;
     private MeatController _meatController;
+    private IDisposable _subscription;
     
     public void Initialize(PanModel panModel, MeatController meatController)
     {
@@ -19,6 +20,12 @@ public class PanController : MonoBehaviour, IDropHandler
         _panModel.IsAvailable = false;
         
         _panView.MeatCooked += OnMeetCooked;
+        _subscription = EventStreams.Game.Subscribe<ReleaseMeatRequest>(Action);
+    }
+
+    private void Action(ReleaseMeatRequest obj)
+    {
+        _panModel.IsAvailable = true;
     }
 
     private void OnMeetCooked()
@@ -40,5 +47,10 @@ public class PanController : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Сковородкин");
+    }
+
+    private void OnDestroy()
+    {
+        _subscription.Dispose();
     }
 }

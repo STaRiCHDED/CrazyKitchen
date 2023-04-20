@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameConfig _config;
     [SerializeField] private PansManager _pansManager;
+    [SerializeField] private PlatesManager _platesManager;
     
     private void Awake()
     {
@@ -13,5 +14,6 @@ public class GameManager : MonoBehaviour
         serviceLocator.RegisterSingle<IDragBufferService>(new DragBufferService());
         
         _pansManager.Initialize(_config.PanModels);
+        _platesManager.Initialize(_config.PlateModels);
     }
 }
