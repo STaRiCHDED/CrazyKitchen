@@ -10,10 +10,15 @@ public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndD
     
     [SerializeField]
     private MeatModel _meatModel;
-    
-    public void ChangeMeatState()
+
+    public void BlockRaycasts(bool flag)
     {
-        _meatModel.IsCooked = true;
+        _meatView.CanvasGroup.blocksRaycasts = flag;
+    }
+    public void ChangeMeatState(bool isReady)
+    {
+        _meatModel.IsCooked = isReady;
+        _meatView.ChangeReadyState(isReady);
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -25,7 +30,7 @@ public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndD
         Debug.Log("Взял мясо");
         var service = ServiceLocator.Instance.GetSingle<IDragBufferService>();
         service.AddToBuffer(gameObject);
-        _meatView.CanvasGroup.blocksRaycasts = false;
+        BlockRaycasts(false);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -40,14 +45,15 @@ public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         var element = eventData.pointerCurrentRaycast.gameObject;
-        Debug.LogWarning($"{element.name}");
-        
-        if (!element.CompareTag("Plate"))
+        var plate = element.GetComponent<PlateController>();
+       
+        if (plate==null || plate.CurrentMealStatus is MealStatus.Empty or MealStatus.Completed)
         {
             transform.position = _meatView.StartPosition;
         }
+        
         Debug.Log("Отпустил мясо");
-        _meatView.CanvasGroup.blocksRaycasts = true;
+        BlockRaycasts(true);
     }
     
     

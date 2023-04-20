@@ -27,6 +27,7 @@ public class PansManager : MonoBehaviour
             {
                 var meat = _meatManager.SpawnMeat();
                 _pans[i].Initialize(_panModels[i], meat);
+                return;
             }
         }
     }

@@ -27,6 +27,7 @@ public class PlatesManager : MonoBehaviour
             if (_plateModels[i].IsAvailable)
             {
                 _plateController[i].Initialize(_plateModels[i]);
+                return;
             }
         }
     }

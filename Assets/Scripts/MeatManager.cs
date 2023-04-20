@@ -14,7 +14,7 @@ public class MeatManager : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new MonoBehaviourPool<MeatController>(_meatControllerPrefab, _spawnRoot, 6);
+        _pool = new MonoBehaviourPool<MeatController>(_meatControllerPrefab, _spawnRoot, 2);
         _subscription=EventStreams.Game.Subscribe<ReleaseMeatRequest>(ReleaseMeat);
     }
 
@@ -24,9 +24,12 @@ public class MeatManager : MonoBehaviour
         return meat;
     }
 
-    public void ReleaseMeat(ReleaseMeatRequest eventData)
+    private void ReleaseMeat(ReleaseMeatRequest eventData)
     {
-        _pool.Release(eventData.MeatController);
+        var meat = eventData.MeatController;
+        _pool.Release(meat);
+        meat.BlockRaycasts(true);
+        
     }
 
     private void OnDestroy()

@@ -30,7 +30,7 @@ public class PanController : MonoBehaviour, IDropHandler
 
     private void OnMeetCooked()
     {
-        _meatController.ChangeMeatState();
+        _meatController.ChangeMeatState(true);
     }
 
     private void Update()

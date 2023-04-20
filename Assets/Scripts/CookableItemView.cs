@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CookableItemView : MonoBehaviour
@@ -16,17 +17,17 @@ public class CookableItemView : MonoBehaviour
     
     [SerializeField]
     private Sprite _readyStateSprite;
-
+    
     private void Awake()
     {
         _currentStateView.sprite = _initialStateSprite;
     }
-
+    
     public void ChangeReadyState(bool flag)
     {
         _currentStateView.sprite = flag ? _readyStateSprite : _initialStateSprite;
     }
-
+    
     public void SetPosition(RectTransform rectTransform)
     {
         transform.SetParent(rectTransform);
