@@ -7,11 +7,11 @@ using Views;
 
 namespace Controllers
 {
-    public class PlateController : MonoBehaviour, IDropHandler
+    public class PlateController : MonoBehaviour, IDropHandler,IBeginDragHandler,IDragHandler,IEndDragHandler
     {
-        [field: SerializeField]
-        public RectTransform MeatTransform { get; private set; }
-    
+        [SerializeField]
+        private RectTransform _rootTransform;
+        
         [SerializeField]
         private PlateView _plateView;
     
@@ -28,6 +28,7 @@ namespace Controllers
             _plateModel = plateModel;
             _plateModel.IsAvailable = false;
             _plateView.ChangeMealState(false);
+            _plateView.SetPosition(_rootTransform);
             CurrentMealStatus = MealStatus.Uncompleted;
         }
     
@@ -49,6 +50,43 @@ namespace Controllers
             
             }
             Debug.Log("Бургер готов");
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (CurrentMealStatus!=MealStatus.Completed)
+            {
+                return;
+            }
+            var service = ServiceLocator.Instance.GetSingle<IDragBufferService>();
+            service.AddToBuffer(gameObject);
+            BlockRaycasts(false);
+        }
+        
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (CurrentMealStatus!=MealStatus.Completed)
+            {
+                return;
+            }
+            transform.position = Input.mousePosition;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            var element = eventData.pointerCurrentRaycast.gameObject;
+            var order = element.GetComponent<Order>();
+
+            if (order == null || order.OrderView.sprite != _plateView.PlateImage.sprite)
+            {
+                transform.position = _plateView.StartPosition;
+            }
+            BlockRaycasts(true);
+        }
+        
+        private void BlockRaycasts(bool shouldBlock)
+        {
+            _plateView.CanvasGroup.blocksRaycasts = shouldBlock;
         }
     }
 }

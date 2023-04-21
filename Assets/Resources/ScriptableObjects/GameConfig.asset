@@ -19,11 +19,11 @@ MonoBehaviour:
     <CookingTime>k__BackingField: 5
   - <IsAvailable>k__BackingField: 1
     <CookingTime>k__BackingField: 5
-  - <IsAvailable>k__BackingField: 0
+  - <IsAvailable>k__BackingField: 1
     <CookingTime>k__BackingField: 5
-  - <IsAvailable>k__BackingField: 0
+  - <IsAvailable>k__BackingField: 1
     <CookingTime>k__BackingField: 5
-  - <IsAvailable>k__BackingField: 0
+  - <IsAvailable>k__BackingField: 1
     <CookingTime>k__BackingField: 5
   _plateModels:
   - <IsAvailable>k__BackingField: 0

@@ -29,7 +29,10 @@ namespace Controllers
 
         private void Action(ReleaseMeatRequestEvent obj)
         {
-            _panModel.IsAvailable = true;
+            if (_meatController == obj.MeatController)
+            {
+                _panModel.IsAvailable = true;
+            }
         }
 
         private void OnMeetCooked()
