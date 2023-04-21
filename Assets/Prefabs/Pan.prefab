@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2504853729854614613}
   - component: {fileID: 2391852210387057052}
   - component: {fileID: 5462831733502247692}
+  - component: {fileID: 2914329690359919822}
   m_Layer: 5
   m_Name: Pan
   m_TagString: Untagged
@@ -126,6 +127,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f219288ec25b40a49968f7c4c8265e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panView: {fileID: 2914329690359919822}
+--- !u!114 &2914329690359919822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2334815842209553348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b73e22767d74663b6396d1cbb5a4f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   <MeatTransform>k__BackingField: {fileID: 8733074293471886171}
-  <IsAvailable>k__BackingField: 1
-  _cookingTime: 5
