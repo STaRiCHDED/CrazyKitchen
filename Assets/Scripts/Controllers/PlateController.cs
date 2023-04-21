@@ -9,6 +9,9 @@ namespace Controllers
 {
     public class PlateController : MonoBehaviour, IDropHandler,IBeginDragHandler,IDragHandler,IEndDragHandler
     {
+        public Vector3 StartPosition { get; private set; }
+        public MealStatus CurrentMealStatus { get; private set; }
+        
         [SerializeField]
         private RectTransform _rootTransform;
         
@@ -16,7 +19,7 @@ namespace Controllers
         private PlateView _plateView;
     
         private PlateModel _plateModel;
-        public MealStatus CurrentMealStatus { get; private set; }
+       
 
         private void Awake()
         {
@@ -28,11 +31,20 @@ namespace Controllers
             _plateModel = plateModel;
             _plateModel.IsAvailable = false;
             _plateView.ChangeMealState(false);
-            _plateView.SetPosition(_rootTransform);
+            StartPosition = _rootTransform.position;
             CurrentMealStatus = MealStatus.Uncompleted;
         }
-    
 
+        public void ResetView()
+        {
+            _plateView.ResetView();
+        }
+
+        public bool CompareMeals(Sprite orderMeal)
+        {
+            return _plateView.PlateImage.sprite == orderMeal;
+        }
+        
         public void OnDrop(PointerEventData eventData)
         {
             if (CurrentMealStatus is MealStatus.Completed or MealStatus.Empty)
@@ -77,9 +89,9 @@ namespace Controllers
             var element = eventData.pointerCurrentRaycast.gameObject;
             var order = element.GetComponent<Order>();
 
-            if (order == null || order.OrderView.sprite != _plateView.PlateImage.sprite)
+            if (order == null)
             {
-                transform.position = _plateView.StartPosition;
+                transform.position = StartPosition;
             }
             BlockRaycasts(true);
         }

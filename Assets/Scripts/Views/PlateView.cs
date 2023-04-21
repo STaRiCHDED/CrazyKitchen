@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Views
@@ -6,27 +7,35 @@ namespace Views
     public class PlateView : MonoBehaviour
     {
         public Image PlateImage => _plateImage;
-        public Vector3 StartPosition { get; private set; }
+       
         [field: SerializeField]
         public CanvasGroup CanvasGroup { get; private set; }
         
         [SerializeField]
         private Image _plateImage;
-    
+
+        [SerializeField]
+        private Sprite _emptyMeal;
+        
         [SerializeField]
         private Sprite _uncompletedMeal;
     
         [SerializeField]
         private Sprite _completedMeal;
 
+        private void Awake()
+        {
+            _plateImage.sprite = _emptyMeal;
+        }
+
         public void ChangeMealState(bool isReady)
         {
             _plateImage.sprite = isReady ? _completedMeal : _uncompletedMeal;
         }
 
-        public void SetPosition(RectTransform rootTransform)
+        public void ResetView()
         {
-            StartPosition = rootTransform.position;
+            _plateImage.sprite = _emptyMeal;
         }
     }
 }
