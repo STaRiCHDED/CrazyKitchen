@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   _panModels:
-  - <IsAvailable>k__BackingField: 0
+  - <IsAvailable>k__BackingField: 1
     <CookingTime>k__BackingField: 5
   - <IsAvailable>k__BackingField: 0
     <CookingTime>k__BackingField: 5
@@ -26,7 +26,7 @@ MonoBehaviour:
   - <IsAvailable>k__BackingField: 0
     <CookingTime>k__BackingField: 5
   _plateModels:
-  - <IsAvailable>k__BackingField: 0
+  - <IsAvailable>k__BackingField: 1
   - <IsAvailable>k__BackingField: 0
   - <IsAvailable>k__BackingField: 0
   - <IsAvailable>k__BackingField: 0

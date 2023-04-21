@@ -18,7 +18,7 @@ public class Order : MonoBehaviour, IDropHandler
         {
             gameObject.SetActive(false);
             plateController.transform.position = plateController.StartPosition;
-            plateController.ResetView();
+            plateController.ResetMeal();
         }
 
     }

@@ -35,9 +35,10 @@ namespace Controllers
             CurrentMealStatus = MealStatus.Uncompleted;
         }
 
-        public void ResetView()
+        public void ResetMeal()
         {
             _plateView.ResetView();
+            _plateModel.IsAvailable = true;
         }
 
         public bool CompareMeals(Sprite orderMeal)
