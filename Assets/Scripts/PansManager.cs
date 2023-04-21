@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PansManager : MonoBehaviour
 {
-    [SerializeField] private PanController[] _pans;
-    [SerializeField] private MeatManager _meatManager;
+    [SerializeField]
+    private PanController[] _pans;
+    
+    [SerializeField]
+    private MeatManager _meatManager;
 
     private PanModel[] _panModels;
 

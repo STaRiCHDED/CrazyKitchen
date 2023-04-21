@@ -1,14 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Services;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlateController : MonoBehaviour, IDropHandler
 {
-    [field: SerializeField] public RectTransform MeatTransform { get; private set; }
-    [SerializeField] private PlateView _plateView;
+    [field: SerializeField]
+    public RectTransform MeatTransform { get; private set; }
+    
+    [SerializeField]
+    private PlateView _plateView;
+    
     private PlateModel _plateModel;
     public MealStatus CurrentMealStatus { get; private set; }
 

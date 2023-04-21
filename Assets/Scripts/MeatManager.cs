@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class MeatManager : MonoBehaviour
 {
-    [SerializeField] private MeatController _meatControllerPrefab;
-    [SerializeField] private Transform _spawnRoot;
-    [field:SerializeField] public Button MeatButton { get; private set; }
-
+    [field:SerializeField]
+    public Button MeatButton { get; private set; }
+    
+    [SerializeField]
+    private MeatController _meatControllerPrefab;
+    
+    [SerializeField]
+    private Transform _spawnRoot;
+    
     private MonoBehaviourPool<MeatController> _pool;
     private IDisposable _subscription;
 

@@ -1,11 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlatesManager : MonoBehaviour
 {
-    [SerializeField] private PlateController[] _plateController;
-    [SerializeField] Button _bunButton;
+    [SerializeField]
+    private PlateController[] _plateController;
+    
+    [SerializeField]
+    Button _bunButton;
 
     private PlateModel[] _plateModels;
 
@@ -14,7 +16,6 @@ public class PlatesManager : MonoBehaviour
         _plateModels = plateModels;
     }
     
-
     private void Awake()
     {
         _bunButton.onClick.AddListener(OnClicked);
@@ -31,5 +32,4 @@ public class PlatesManager : MonoBehaviour
             }
         }
     }
-    
 }

@@ -1,12 +1,16 @@
-using System;
 using Services;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameConfig _config;
-    [SerializeField] private PansManager _pansManager;
-    [SerializeField] private PlatesManager _platesManager;
+    [SerializeField]
+    private GameConfig _config;
+    
+    [SerializeField]
+    private PansManager _pansManager;
+    
+    [SerializeField]
+    private PlatesManager _platesManager;
     
     private void Awake()
     {

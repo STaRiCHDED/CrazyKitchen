@@ -1,12 +1,11 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-
 
 public class PanController : MonoBehaviour, IDropHandler
 {
-    [SerializeField] private PanView _panView;
+    [SerializeField]
+    private PanView _panView;
     
     private PanModel _panModel;
     private MeatController _meatController;

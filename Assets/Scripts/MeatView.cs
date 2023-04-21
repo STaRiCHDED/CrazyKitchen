@@ -1,8 +1,4 @@
-﻿using System;
-using Services;
-using UnityEngine.EventSystems;
-
-public class MeatView : CookableItemView
+﻿public class MeatView : CookableItemView
 {
 }
 

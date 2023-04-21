@@ -4,7 +4,9 @@ using UnityEngine;
 public class PanView : MonoBehaviour
 {
     public event Action MeatCooked;
-    [field: SerializeField] public RectTransform MeatTransform { get; private set; }
+    
+    [field: SerializeField]
+    public RectTransform MeatTransform { get; private set; }
 
     private MeatView _meatView;
     private float _currentTime;

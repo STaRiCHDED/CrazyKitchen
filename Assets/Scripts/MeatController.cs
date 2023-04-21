@@ -6,7 +6,8 @@ public class MeatController : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndD
 {
     public MeatView MeatView => _meatView;
     
-    [SerializeField] private MeatView _meatView;
+    [SerializeField]
+    private MeatView _meatView;
     
     [SerializeField]
     private MeatModel _meatModel;
