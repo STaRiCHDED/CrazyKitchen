@@ -1,5 +1,8 @@
-﻿public class MeatView : CookableItemView
+﻿namespace Views
 {
+    public class MeatView : CookableItemView
+    {
+    }
 }
 
 
