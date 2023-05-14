@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PlatesManager _platesManager;
 
-    [SerializeField]
-    private Client _client;
+    // [SerializeField]
+    // private Client _client;
     
     private void Awake()
     {
@@ -24,12 +24,12 @@ public class GameManager : MonoBehaviour
         
         _pansManager.Initialize(_config.PanModels);
         _platesManager.Initialize(_config.PlateModels);
-        StartCoroutine(ShowOrder());
+        // StartCoroutine(ShowOrder());
     }
 
-    private IEnumerator ShowOrder()
-    {
-        yield return new WaitForSeconds(5);
-        _client.UpdateOrderState(true);
-    }
+    // private IEnumerator ShowOrder()
+    // {
+    //     yield return new WaitForSeconds(5);
+    //     _client.UpdateOrderState(true);
+    // }
 }

@@ -1,11 +1,15 @@
-﻿using Controllers;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Controllers;
 using Services;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-// TODO: Перейти на класс OrderView, этот класс удалить
-public class Order : MonoBehaviour, IDropHandler
+
+public class OrderView : MonoBehaviour, IDropHandler
 {
+    public Action OrderDelivered;
     [SerializeField]
     private Image _orderView;
     
@@ -19,8 +23,13 @@ public class Order : MonoBehaviour, IDropHandler
             gameObject.SetActive(false);
             plateController.transform.position = plateController.StartPosition;
             plateController.ResetMeal();
+            OrderDelivered?.Invoke();
         }
 
     }
-    
+    public void UpdateOrderState(bool flag)
+    {
+        Debug.Log($"UpdateOrderState");
+        gameObject.SetActive(flag);
+    }
 }

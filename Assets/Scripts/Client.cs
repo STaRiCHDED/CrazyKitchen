@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+// TODO: Перейти на класс ClientView, этот класс удалить
 public class Client : MonoBehaviour
 {
     [SerializeField]

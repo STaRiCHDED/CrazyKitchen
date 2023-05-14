@@ -26,6 +26,7 @@ namespace Managers
 
         private void StartCookingMeat()
         {
+            Debug.Log($"StartCooking");
             for (var i = 0; i < _panModels.Length; i++)
             {
                 if (_panModels[i].IsAvailable)
